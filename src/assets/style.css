@@ -1,0 +1,85 @@
+
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+.absolute-center,
+.menu,
+.menu .btn,
+.menu .btn-icon,
+.menu .btn.trigger .line {
+  position: absolute;
+}
+
+.absolute-center {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.menu .btn-icon {
+  transition: transform 0.5s;
+}
+
+.menu.active .rotate:nth-child(1) {
+  transform: rotate(202.5deg);
+}
+
+.menu.active .rotate:nth-child(1) .btn-icon {
+  transform: translateY(-10em) rotate(-202.5deg);
+}
+
+.menu.active .rotate:nth-child(2) {
+  transform: rotate(247.5deg);
+}
+
+.menu.active .rotate:nth-child(2) .btn-icon {
+  transform: translateY(-10em) rotate(-247.5deg);
+}
+
+.menu.active .rotate:nth-child(3) {
+  transform: rotate(292.5deg);
+}
+
+.menu.active .rotate:nth-child(3) .btn-icon {
+  transform: translateY(-10em) rotate(-292.5deg);
+}
+
+.menu.active .rotate:nth-child(4) {
+  transform: rotate(337.5deg);
+}
+
+.menu.active .rotate:nth-child(4) .btn-icon {
+  transform: translateY(-10em) rotate(-337.5deg);
+}
+
+.menu.active .rotate:nth-child(5) {
+  transform: rotate(382.5deg);
+}
+
+.menu.active .rotate:nth-child(5) .btn-icon {
+  transform: translateY(-10em) rotate(-382.5deg);
+}
+
+.menu.active .rotate:nth-child(6) {
+  transform: rotate(427.5deg);
+}
+
+.menu.active .rotate:nth-child(6) .btn-icon {
+  transform: translateY(-10em) rotate(-427.5deg);
+}
+
+.menu.active .rotate:nth-child(7) {
+  transform: rotate(472.5deg);
+}
+
+.menu.active .rotate:nth-child(7) .btn-icon {
+  transform: translateY(-10em) rotate(-472.5deg);
+}

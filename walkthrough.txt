@@ -1,0 +1,19 @@
+#1 NPM: vue create vue@latest   
+#2 NPM: add Tailwind/vuetify/Bootstrap/
+#3 Removed HelloWorld.vue component and other unused things
+  #3.1 
+
+#4 Adding firebase
+#4.1 npm install firebase
+#4.2 Logged into firebase, created a firestore + changed rules (added 1 year to lifespan)
+  #4.2.1 Make a placeholder collection and populate with some data
+  #4.2.2 Add firebase to your App ( frontpage: icon = </> )
+#4.3 Added firebase.js file + copied database information into file
+#4.4 Exported fb to use globally
+  #4.4.1 code snippets:
+    import { getFirestore } from "firebase/firestore"; // <- needed for DB
+    const app = initializeApp(firebaseConfig); 
+    export const db = getFirestore(app); 
+
+
+    backup. delete when working:
