@@ -1,16 +1,16 @@
 <template>
   <div class="remedy">
     <div class="input-prompt">
-      <h1>Chat with OpenAI</h1>
+      <h1 class="Ai">Chat with OpenAI</h1>
       <h2>SEO Prompt</h2>
       <!-- Input fields to enter the prompts -->
       <!--<textarea v-model="ruleSetForPrompt" placeholder="Enter the rule set for the prompt" rows="10"></textarea>-->
 
                       <!----------------- longtail keywords & Headlines --------------------->
-             <p>liste af longtail keyword anført med nr.</p>
-                 <input v-model="promptInputDataLongTailKeywords" placeholder="Enter your prompt for Longtail Keywords" />
-                    <p>Liste med overskrifter anført med nr.</p>
-                       <input v-model="promptInputHeadlines" placeholder="Enter your prompt for Headline" />
+             <p>Long-tail keyword anført med nr.</p>
+                 <input required v-model="promptInputDataLongTailKeywords" placeholder=" Long-tail keywords...." />
+                    <p>Overskrifter anført med nr.</p>
+                       <input v-model="promptInputHeadlines" placeholder="Overskrifter...." />
 
 
                      <!------------------- specifikke instruktioner -------------------->
@@ -22,7 +22,7 @@
                           </select>
 
                               <p>Hvad søger kunden under besøget af undersiden</p>
-                                 <input v-model="specificInformationPromptDataCustomerNeeds" placeholder="hvad søger kunden?" />
+                                 <input v-model="specificInformationPromptDataCustomerNeeds" placeholder=" F.eks. tømrerarbejde til nybyggeri og renovering " />
 
                                     <p>Beskriv mulig problemstilling</p>
                                        <input v-model="specificInformationPromptDataIssues" placeholder="F.eks. finde den rette tømre?" />
@@ -35,65 +35,67 @@
                     <input v-model="keywordsSpecificationsDataThekeywords" placeholder="Primære søgeord" />
                         <p>Sekundære søgeord</p>
                            <input v-model="keywordsSpecificationsDataSekundæreKeywords" placeholder="Sekundære Søgeord" />
-                             <p>Søgeordstæthed anført i %</p>
+                             <p>Søgeordstæthed i %</p>
                                 <input v-model="keywordsSpecificationsDataTæthedsProcent" placeholder=" F.eks. 2 %" />
-                                   <p>Tætheden af søgeord i forhold til længden af teksten</p>
+                                   <p>Søgeord i forhold til antal ord</p>
                                       <input v-model="keywordsSpecificationsDataTæthedsLængde" placeholder="F.eks. 1000" />
 
 
 
                                <!------------------  top section ------------------->
-                <p class="overskrift"> Indhold til 1 sektion for undersiden</p>
+                <p class="overskrift"> Indhold 1. sektion</p>
 
-                   <p> Vælg Overskrift fra din liste med dens nr.</p>
-                      <input v-model="headlinesTopSection" placeholder="" />
+                   <p> Vælg Overskrift - fra din liste din.</p>
+                      <input v-model="headlinesTopSection" placeholder="Overskrift Nr." />
 
                          <p> Firmaets Navn</p>
                            <input v-model="costumerName" placeholder=" F.eks. Helles negle salon" />
 
-                             <p>Længden af 1 sektion</p>
+                             <p>Længden af 1. sektion</p>
                                <input v-model="numberOfWordsTop" placeholder="Antal ord" />
 
 
                        <!---------------------- middle section ------------------------>
-                   <p class="overskrift">Indhold til 2 sektion for undersiden</p>
+                   <p class="overskrift">Indhold 2. sektion</p>
 
-                        <p> Vælg Overskrift fra din liste med dens nr.</p>
-                            <input v-model="headlineMiddleSection" placeholder="Overskrift" />
+                        <p> Vælg Overskrift - fra din liste din.</p>
+                            <input v-model="headlineMiddleSection" placeholder="Overskrift Nr." />
 
-                             <p> Nr. på Longtail keywords der skal anvendes i denne sektion </p>
-                                  <input v-model="numberOfLongtailKeywordsMiddleSection" placeholder="vælg longtail keywords" />
+                             <p> Long-tail keywords fra listen </p>
+                                  <input v-model="numberOfLongtailKeywordsMiddleSection" placeholder="Long-tail keywords Nr." />
      
-                                       <p>Antal ord i den midterste sektion</p>
+                                       <p>Længden af 2. sektion</p>
                                           <input v-model="numberOfWordsMiddle" placeholder="Antal ord" />
 
 
                             <!------------------------- bottom section ---------------------->
-                    <p class="overskrift">Indhold til 3 sektion for undersiden (CTA)</p>
+                    <p class="overskrift">Indhold til 3 sektion (CTA)</p>
 
-                   <p> Vælg Overskrift fra din liste med dens nr.</p>
-                        <input v-model="headlineBottomSection" placeholder="Overskrift" />
+                   <p> Vælg Overskrift - fra din liste din.</p>
+                        <input v-model="headlineBottomSection" placeholder="Overskrift Nr." />
 
-                           <p> Nr. på Longtail keywords der skal anvendes i denne sektion </p>
-                              <input v-model="numberOfLongtailKeywordsBottomSection" placeholder="vælg longtail keywords" />
+                           <p> Long-tail keywords fra listen </p>
+                              <input v-model="numberOfLongtailKeywordsBottomSection" placeholder="Long-tail keywords Nr." />
                                 
-                                <p>Email til CTA</p>
-                                   <input v-model="emailToCta" placeholder="Email til CTA" />
+                                <p>Mail til CTA</p>
+                                   <input v-model="emailToCta" placeholder="Email" />
                                  
-                                      <p>Telefonnummer til CTA</p>
+                                      <p>Kontakt Nr. til CTA</p>
                                          <input v-model="phoneNumberCostumer" placeholder="Telefonnummer" />
      
                                          <p>Kontakt side</p>
-                                            <input v-model="contaktSiteOnCostomer" placeholder="Kontakt side" />
+                                            <input v-model="contaktSiteOnCostomer" placeholder="Kontakt side url" />
      
-                                            <p>Antal ord i den nederste sektion</p>
+                                            <p>Længden af 2. sektion</p>
                                                <input v-model="numberOfWordsBottom" placeholder="Antal ord" />
 
 
                           <!---------------------  tone of voice -------------------------->
       
-                   <p class="overskrift"> Sprog niveau & Tone for outputs</p>
+                   <p class="overskrift"> Sprog niveau & Tone of voice for outputs</p>
 
+                      <p> Sprog</p>
+                          <input v-model="languageOnPrompt" placeholder=" F.eks. Dansk" />
                          <p> Sprog niveau</p>
                              <input v-model="languageLevelOnPrompt" placeholder=" F.eks. Grundlæggende" />
                                <p> Tone</p>
@@ -104,10 +106,10 @@
                     <p class="overskrift"> Lokalt Fokus</p>
 
                         <p> Firmaets lokation</p>
-                            <input v-model="locationOfTheCostumer" placeholder="Firmaets lokation" />
+                            <input v-model="locationOfTheCostumer" placeholder="F.eks. Rønne" />
                          
-                              <p> Lokal fokus</p>
-                                 <input v-model="localSeoStrategy" placeholder="Lokal fokus" />
+                              <p> Lokal SEO strategi</p>
+                                 <input v-model="localSeoStrategy" placeholder="F.eks - Esbjerg - Varde - Bramming" />
 
                           <!------------------ Referencer ------------------->
 
@@ -126,8 +128,8 @@
       <button @click="chatclick()">Give response</button>
     </div>
 
-    <div class="outputs-prompt">
-      <p>Response: {{ response }}</p>
+    <div class="outputs-prompt" style="overflow: scroll">
+      <p class="res-p">Response: {{ response }}</p>
     </div>
   </div>
 </template>
@@ -244,10 +246,12 @@ const promptStrukturOgFormatBottomString = ref(`
 `)
 
 //tone og sprog niveau
+const languageOnPrompt = ref(``)
 const languageLevelOnPrompt = ref(``)
 const toneOfVoiceOnPrompt = ref(``)
 const toneOfVoiceString = ref(`
 tone og sprog niveau:
+-Sprog ${languageOnPrompt.value}
 -sprog niveau: ${ languageLevelOnPrompt.value}
 -Tone: ${toneOfVoiceOnPrompt.value}
 
@@ -360,22 +364,25 @@ const fetchChatResponse = async () => {
 .remedy {
   .remedy {
     display: flex;
-    justify-content: center ;
+    justify-content: space-between;
+   width: 100%;
 
-    
-
-  }
+     }
 
   .input-prompt,
   .outputs-prompt {
+    
     flex: 2;
    
     padding: 20px;
     /* border: 1px solid #ccc; */
     border-radius: 48px;
    /*  background-color: rgba(248, 225, 243, 0.555); */
-    color: rgb(251, 212, 255);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(255, 255, 255);
+    font-family: bookman;
+    font-size: 15px;
+    width: 80vh;
+    -ms-flex-item-align: start;
   }
   .input-prompt {
     margin-right: 10px;
@@ -385,93 +392,120 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
  
   border: 1px solid rgba( 255, 255 255, 0.18);
   border-radius: 32px;
+  box-sizing: 80%;
+  align-items: flex-start;
+  max-width: 80%;
 }
 
   .input-prompt {
     margin-right: 10px;
-    width: 70%;
-    width: 100%;
+    width: 80vh;
+    height: auto;
+   
   }
 
   .input-prompt input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #a4a1a1;
     border-radius: 5px;
     margin-bottom: 10px;
   }
 
   .outputs-prompt {
+    display: flex;
+    height: auto;
+    align-items: flex-start;
     margin-left: 10px;
-    color: seashell;
-    background-color: rgba(248, 225, 243, 0.305);
+    color: rgba(37, 37, 37, 0.887);
+    
+    size: auto;
+    background-color: #e7e7e7;
+
+  resize: both;
+  overflow: hidden;
+
+
+
   }
+  
 
   .response p {
-    font-size: 16px;
+    font-size: 25px;
     margin-top: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #212121;
     border-radius: 5px;
   }
 
   h2 {
-    color: #3f3f3f8f;
-    font-size: 15px;
-    font-weight: 300;
+    color: #ffffff8f;
+    font-size: 25px;
+    font-weight: 400;
     margin-bottom: 20px;
+
   }
-  display: flex;
- 
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 }
 
-/* .input-prompt {
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 48px 0;
-  width: 50%;
-  background-color: rgba(248, 225, 243, 0.555);
-  color: rgb(251, 212, 255);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.overskrift {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  
 }
-
-.input-prompt input {
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 10px;
+  border: 1px solid #363636;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: #717171;
+}
+select {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #363636;
   border-radius: 5px;
   margin-bottom: 10px;
+  color: #717171;
 }
 
-.outputs-prompt {
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 0 48px 0 48px;
-  width: 50%;
-  color: seashell;
-  background-color: rgba(248, 225, 243, 0.305);
-}
-
-.response p {
+button {
+  padding: 10px 20px;
   font-size: 16px;
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #ffffffa1;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.res-p {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #494949d8;
+  margin: 1rem;
 }
 
-h2 {
-  color: #3f3f3f8f;
-  font-size: 15px;
-  font-weight: 300;
-  margin-bottom: 20px; */
+.remedy {
+  display: flex;
+
+
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: top;
+  width: 100%;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
 
 </style>

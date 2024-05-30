@@ -48,14 +48,14 @@ let logOut = () => {
 <template>
   <div class="Prompt-1">
     <header>
-      <img alt="remedy" class="logo" src="@/assets/logo0.png" width="125" height="125" />
+      <img alt="remedy" class="logo" src="@/assets/logony1.png" width="125" height="125" />
 
       <div class="wrapper">
         <nav>
           <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/navguard">NavGuard</RouterLink>
-          <RouterLink to="/login">Login</RouterLink>
-          <RouterLink to="/chatgpt">chatgpt</RouterLink>
+          <!-- <RouterLink to="/navguard">NavGuard</RouterLink>
+          <RouterLink to="/login">Login</RouterLink> -->
+          <RouterLink to="/chatgpt">Prompt</RouterLink>
         </nav>
         <button @click="logOut" v-if="isLoggedIn">Log Out</button>
       </div>
@@ -91,29 +91,31 @@ let logOut = () => {
 html, template, .prompt-1 {
   margin: 0;
   padding: 0;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden; */
+ 
 }
 
 .prompt-1{
-  position: relative;
-  display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+
 }
 
 header {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
   padding-bottom: 4rem;
+  font-family: bookman;
   /* Optional: Add some background to the header */
 }
 
@@ -130,7 +132,7 @@ nav {
 
 main {
   flex: 1;
-  display: flex;
+  /* display: flex; */
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -167,12 +169,12 @@ header {
   display: block;
   margin: 0 auto 2rem;
   height: auto;
-  size: 100%;
+  size: 120%;
 }
 
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 15px;
   text-align: center;
   margin-top: 2rem;
 }
@@ -182,7 +184,7 @@ nav a.router {
 }
 
 nav a.router-link-exact-active {
-  color: #d384f2
+  color: #ffe1f2
  /*  color: #d384f2 */
 }
 
